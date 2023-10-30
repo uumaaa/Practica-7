@@ -157,6 +157,17 @@ def print_chains(chain_code):
 
     return chain_code, first_difference, minimum_magnitude
 
+def normalize_chain(chain_code):
+    # Se normalizan las direcciones, el 3 pasa a ser el 0, el 4 el 1, ...
+    for i in range(len(chain_code)):
+        chain_code[i] = (chain_code[i] + 5) % 8
+    first_difference = []
+    for i in range(len(chain_code) - 1):
+        first_difference.append((chain_code[i + 1] - chain_code[i]) % 8)
+        first_difference.append((chain_code[0] - chain_code[len(chain_code) - 1]) % 8)
+    minimum_magnitude = find_minimum_magnitude(first_difference)
+    normalized_chain = minimum_magnitude
+    return normalized_chain
 
 if __name__ == "__main__":
     # Carga la imagen binaria de bordes
