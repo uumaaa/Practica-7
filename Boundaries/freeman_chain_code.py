@@ -29,6 +29,8 @@ def calculate_chain_code(image):
 
     # Initialize the chain code
     chain_code = []
+    if(r is None or c is None):
+        return []
     direction = 3
 
     while True:
