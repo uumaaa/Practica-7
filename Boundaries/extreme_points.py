@@ -14,5 +14,6 @@ def findExtremePoints(boundary):
             east_point = point
         if west_point is None or x < west_point[1]:
             west_point = point
-
     return north_point, south_point, east_point, west_point
+
+
